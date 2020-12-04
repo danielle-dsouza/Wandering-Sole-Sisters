@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
+//import { withFirebase } from 'react-redux-firebase';
 import { createBlog } from '../../store/actions/blogActions';
 
 class CreateBlog extends Component {
+
   state = {
     title: "",
     content: "",

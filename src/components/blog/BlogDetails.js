@@ -1,21 +1,50 @@
 import React from "react";
+import { connect } from "react-redux";
+import { firestoreConnect } from "react-redux-firebase";
+import { compose } from "redux";
 
-export default function BlogDetails(props) {
+function BlogDetails(props) {
 
-    const id = props.match.params.id;
+  const { blog } = props;
 
-  return (
-    <div className="container section blog-details">
-      <div class="card z-depth-0">
-        <div class="card-content">
-          <span class="card-title">Blog Title - {id}</span>
-          <p>I am a very simple blog. I cool info. You should read me.</p>
-        </div>
-        <div className="card-action grey lighten-4 grey-text">
-          <div>Posted by Danielle D'Souza</div>
-          <div>Dec 3, 2020</div>
+  if (blog) {
+    return (
+      <div className="container section blog-details">
+        <div className="card z-depth-0">
+          <div className="card-content">
+            <span className="card-title">{blog.title}</span>
+            <p>{blog.content}</p>
+          </div>
+          <div className="card-action grey lighten-4 grey-text">
+            <div>
+              Posted by {blog.authorFirstName} {blog.authorLastName}
+            </div>
+            <div>Dec 3, 2020</div>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className="container center">
+        <p>Loading...</p>
+      </div>
+    );
+  }
 }
+
+const mapStateToProps = (state, myProps) => {
+  const id = myProps.match.params.id;
+  const blog = state.firestore.data.blogs ? state.firestore.data.blogs[id] : null;
+
+  return {
+    blog: blog,
+  };
+};
+
+export default compose(
+  firestoreConnect((props) => {
+    return [{ collection: "blogs", doc: props.match.params.id }];
+  }),
+  connect(mapStateToProps)
+)(BlogDetails);
