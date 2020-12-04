@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { Component } from "react";
+import BlogSummary from "./BlogSummary";
 
-import BlogSummary from './BlogSummary';
+export default class BlogList extends Component {
+  render() {
+    const { blogs } = this.props;
 
-export default function BlogList() {
+    const blogList = blogs.map((blog) => {
+      return <BlogSummary blog={ blog } key={ blog.id } />;
+    });
+
     return (
-        <div className="blog-list section">
-            <BlogSummary />
-            <BlogSummary />
-            <BlogSummary />
-        </div>
-    )
+      <div className="blog-list section">
+          { blogList }
+      </div>
+    );
+  }
 }

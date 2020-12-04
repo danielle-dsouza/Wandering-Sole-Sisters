@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
+import { createBlog } from '../../store/actions/blogActions';
 
-export default class CreateBlog extends Component {
+class CreateBlog extends Component {
   state = {
     title: "",
     content: "",
@@ -14,7 +16,7 @@ export default class CreateBlog extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    this.props.createBlog(this.state)
   };
 
   render() {
@@ -38,3 +40,11 @@ export default class CreateBlog extends Component {
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createBlog: (blog) => dispatch(createBlog(blog))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(CreateBlog);
