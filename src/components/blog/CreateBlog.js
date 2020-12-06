@@ -18,7 +18,8 @@ class CreateBlog extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.createBlog(this.state)
+    this.props.createBlog(this.state);
+    this.props.history.push('/');
   };
 
   render() {

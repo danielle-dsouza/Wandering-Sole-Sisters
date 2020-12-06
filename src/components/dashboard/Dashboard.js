@@ -7,16 +7,16 @@ import { compose } from "redux";
 
 class Dashboard extends Component {
   render() {
-    const { blogs } = this.props;
+    const { blogs, notifications } = this.props;
 
     return (
       <div className="dashboard container">
         <div className="row">
           <div className="col s12 m6">
-            <BlogList blogs={blogs} />
+            <BlogList blogs={ blogs } />
           </div>
           <div className="col s12 m5 offset-m1">
-            <Notifications />
+            <Notifications notifications={notifications} blogs={ blogs }/>
           </div>
         </div>
       </div>
@@ -25,13 +25,16 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.firestore.ordered.blogs);
   return {
     blogs: state.firestore.ordered.blogs,
+    notifications: state.firestore.ordered.notifications,
   };
 };
 
 export default compose(
-  firestoreConnect(() => ["blogs"]),
+  firestoreConnect(() => [
+    { collection: "blogs", limit: 5, orderBy: ['postedAt', 'desc'] },
+    { collection: "notifications", limit: 3, orderBy: ['time', 'desc'] },
+  ]),
   connect(mapStateToProps)
 )(Dashboard);

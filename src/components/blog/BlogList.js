@@ -8,8 +8,8 @@ export default class BlogList extends Component {
 
     const blogList = blogs && blogs.map((blog) => {
       return (
-        <Link to={ '/blog/' + blog.id }>
-          <BlogSummary blog={ blog } key={ blog.id } />
+        <Link to={ '/blog/' + blog.id } key={ blog.id }>
+          <BlogSummary blog={ blog } />
         </Link>
       );
     });
@@ -17,7 +17,6 @@ export default class BlogList extends Component {
     return (
       <div className="blog-list section">
           { blogList }
-
       </div>
     );
   }

@@ -2,9 +2,11 @@ import React from "react";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
+import moment from "moment";
+
+import Loader from "../UI/Loader/Loader";
 
 function BlogDetails(props) {
-
   const { blog } = props;
 
   if (blog) {
@@ -19,23 +21,21 @@ function BlogDetails(props) {
             <div>
               Posted by {blog.authorFirstName} {blog.authorLastName}
             </div>
-            <div>Dec 3, 2020</div>
+            <div>{moment(blog.postedAt.toDate()).calendar()}</div>
           </div>
         </div>
       </div>
     );
   } else {
-    return (
-      <div className="container center">
-        <p>Loading...</p>
-      </div>
-    );
+    return <Loader />;
   }
 }
 
 const mapStateToProps = (state, myProps) => {
   const id = myProps.match.params.id;
-  const blog = state.firestore.data.blogs ? state.firestore.data.blogs[id] : null;
+  const blog = state.firestore.data.blogs
+    ? state.firestore.data.blogs[id]
+    : null;
 
   return {
     blog: blog,
