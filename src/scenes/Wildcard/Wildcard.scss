@@ -1,0 +1,15 @@
+@import "../../styles/globals";
+
+.section {
+  margin: 5%;
+}
+
+.highlight:hover {
+  color: darken($theme-blue, 10%);
+}
+
+@media only screen and (min-width: 1025px) {
+  .section {
+    margin: 2%;
+  }
+}

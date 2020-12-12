@@ -21,18 +21,12 @@
   font-family: "Ubuntu", sans-serif;
 }
 
-@media only screen and (max-width: 989px) {
-  .desktop-only {
-    display: none;
-  }
-}
-
 @media only screen and (min-width: 641px) and (max-width: 1024px) {
   .navbar {
     .brand-logo {
-      font-size: 4vw;
+      font-size: 3vw;
     }
-    .mobile-only {
+    .desktop-only {
       display: none;
     }
   }

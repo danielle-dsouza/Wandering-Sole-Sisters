@@ -1,0 +1,37 @@
+@import './fonts';
+
+// theme
+$theme-blue: #30566d;
+$theme-green: #8D8741;
+$theme-cream: #FBEEC1;
+$theme-brown: #BC986A;
+
+hr {
+  margin: 4% 0;
+  border-top: 5px solid $theme-green;
+}
+
+.c-div {
+  margin: 4% 8%;
+}
+
+.highlight {
+  color: $theme-blue;
+  font-weight: bold;
+}
+
+@media only screen and (min-width: 641px) and (max-width: 1024px){
+  .c-div {
+    margin: 0 6%;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  hr {
+    margin: 2% 0;
+  }
+
+  .c-div {
+    margin: 0 6%;
+  }
+}

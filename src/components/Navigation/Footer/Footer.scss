@@ -1,23 +1,23 @@
-@import '../../../styles/globals';
+@import "../../../styles/globals";
 
 .footer {
-    background-color: $theme-brown;
-    font-family: "Ubuntu", sans-serif;
-    color: white;
-    font-size: 3vw;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+  background-color: $theme-blue;
+  font-family: "Ubuntu", sans-serif;
+  color: white;
+  font-size: 3vw;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+@media only screen and (min-width: 641px) and (max-width: 1024px) {
+  .footer {
+    font-size: 1.5vw;
   }
-  
-  @media only screen and (min-width: 641px) and (max-width: 1024px) {
-    .footer {
-      font-size: 1.5vw;
-    }
+}
+
+@media only screen and (min-width: 1025px) {
+  .footer {
+    font-size: 0.8vw;
   }
-  
-  @media only screen and (min-width: 1025px) {
-    .footer {
-      font-size: 0.8vw;
-    }
-  }
+}
