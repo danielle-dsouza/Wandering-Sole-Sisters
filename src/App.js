@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 
 import Layout from "./components/Layout/Layout";
@@ -19,7 +19,7 @@ function App(props) {
         <Route exact path="/" component={Dashboard} />
         <Route path="/blog/:id" component={BlogDetails} />
         <Route path="/create" component={CreateBlog} />
-        <Route path="/**" component={Wildcard} />
+        <Redirect to="/" component={Home} />
       </Switch>
     );
   } else {
