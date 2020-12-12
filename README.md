@@ -4,4 +4,4 @@ A simple travel blog created with React and Redux! Create an account to post abo
 
 The site utilizes Firebase and Cloud Functions.
 
-Try it out [https://sole-sisters.web.app](here)!
+Try it out at https://sole-sisters.web.app!
