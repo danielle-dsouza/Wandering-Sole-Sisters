@@ -1,11 +1,12 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import Item from "./Item/Item";
+import "./NavItems.scss";
 
 const SignedOutLinks = () => {
   return (
-    <ul className="right nav-link">
-        <li><NavLink to="/signup">Sign Up</NavLink></li>
-        <li><NavLink to="/signin">Sign In</NavLink></li>
+    <ul className="nav-link">
+      <Item link={"/signup"}>Sign Up</Item>
+      <Item link={"/signin"}>Sign In</Item>
     </ul>
   );
 };

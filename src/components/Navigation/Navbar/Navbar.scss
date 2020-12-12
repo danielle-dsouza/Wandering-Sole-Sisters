@@ -1,0 +1,50 @@
+@import "../../../styles/globals";
+
+.navbar {
+  background-color: $theme-blue;
+  padding: 0 1%;
+
+  .brand-logo {
+    font-family: "Rock Salt", cursive;
+    font-size: 5vw;
+    color: white;
+  }
+
+  .nav-menu {
+    color: black;
+    vertical-align: middle;
+    margin: auto 2%;
+  }
+}
+
+.nav-link {
+  font-family: "Ubuntu", sans-serif;
+}
+
+@media only screen and (max-width: 989px) {
+  .desktop-only {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 641px) and (max-width: 1024px) {
+  .navbar {
+    .brand-logo {
+      font-size: 4vw;
+    }
+    .mobile-only {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .navbar {
+    .brand-logo {
+      font-size: 2vw;
+    }
+    .mobile-only {
+      display: none;
+    }
+  }
+}

@@ -1,8 +1,8 @@
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 
-import Navbar from "./components/Navigation/Navbar";
-import Home from './scenes/Home/Home';
+import Layout from "./components/Layout/Layout";
+import Home from "./scenes/Home/Home";
 import Dashboard from "./components/dashboard/Dashboard";
 import BlogDetails from "./components/blog/BlogDetails";
 import SignIn from "./components/auth/SignIn";
@@ -36,10 +36,7 @@ function App(props) {
 
   return (
     <BrowserRouter>
-      <div className="App">
-        <Navbar />
-        {routes}
-      </div>
+      <Layout>{routes}</Layout>
     </BrowserRouter>
   );
 }
