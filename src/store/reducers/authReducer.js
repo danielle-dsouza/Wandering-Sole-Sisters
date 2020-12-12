@@ -7,32 +7,32 @@ const initState = {
 const authReducer = (state = initState, action) => {
   switch (action.type) {
     case actions.SIGNIN_SUCCESS:
-      console.log("User is signed in");
+      // console.log("User is signed in");
       return {
         ...state,
         authError: null,
       };
 
     case actions.SIGNIN_ERR:
-      console.log("Sign in error");
+      // console.log("Sign in error");
       return {
         ...state,
         authError: action.err.message,
       };
 
     case actions.SIGNOUT:
-      console.log("User is signed out");
+      // console.log("User is signed out");
       return state;
 
     case actions.SIGNUP_SUCCESS:
-      console.log("Sign up success");
+      // console.log("Sign up success");
       return {
         ...state,
         authError: null,
       };
 
     case actions.SIGNUP_ERR:
-      console.log("Sign up error");
+      // console.log("Sign up error");
       return {
         ...state,
         authError: action.err.message,
