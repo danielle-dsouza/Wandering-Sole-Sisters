@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../../styles/_forms.scss';
 import { connect } from 'react-redux';
 import { signUp } from '../../store/actions/authActions';
 
@@ -29,8 +30,8 @@ class SignUp extends Component {
 
         return (
             <div className="container">
-                <form className="white" onSubmit={ this.handleSubmit }>
-                    <h5 className="grey-text text-darken-3">Sign Up</h5>
+                <form onSubmit={ this.handleSubmit }>
+                    <h5>Sign Up</h5>
                     <div className="input-field">
                         <label htmlFor="firstName">First Name</label>
                         <input type="text" id="firstName" onChange={ this.handleChange } />
@@ -48,7 +49,7 @@ class SignUp extends Component {
                         <input type="password" id="password" onChange={ this.handleChange } />
                     </div>
                     <div className="input-field">
-                        <button className="btn pink lighten-1 z-depth-0">Sign Up</button>
+                        <button className="btn z-depth-0">Sign Up</button>
                         <div className="center red-text">
                             { authError ? <p>{ authError }</p> : null}
                         </div>
