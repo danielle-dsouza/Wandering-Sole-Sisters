@@ -1,13 +1,14 @@
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 
 import Layout from "./components/Layout/Layout";
 import Home from "./scenes/Home/Home";
-import Dashboard from "./components/dashboard/Dashboard";
-import BlogDetails from "./components/blog/BlogDetails";
-import SignIn from "./components/auth/SignIn";
-import SignUp from "./components/auth/SignUp";
-import CreateBlog from "./components/blog/CreateBlog";
+import Dashboard from './scenes/Dashboard/Dashboard';
+import BlogDetails from "./components/Blog/BlogDetails";
+import SignIn from "./components/Auth/SignIn";
+import SignUp from "./components/Auth/SignUp";
+import CreateBlog from "./components/Blog/CreateBlog";
+import Wildcard from "./scenes/Wildcard/Wildcard";
 
 function App(props) {
   let routes;
@@ -18,8 +19,7 @@ function App(props) {
         <Route exact path="/" component={Dashboard} />
         <Route path="/blog/:id" component={BlogDetails} />
         <Route path="/create" component={CreateBlog} />
-        {/* <Route path="/**" component={Wildcard} /> */}
-        {/* <Redirect to="/" component={Dashboard} /> */}
+        <Route path="/**" component={Wildcard} />
       </Switch>
     );
   } else {
@@ -27,9 +27,8 @@ function App(props) {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/signin" component={SignIn} />
-        {/* <Route path="/signin" component={SignIn} /> */}
         <Route path="/signup" component={SignUp} />
-        {/* <Route path="/**" component={Wildcard} /> */}
+        <Route path="/**" component={Wildcard} />
       </Switch>
     );
   }
