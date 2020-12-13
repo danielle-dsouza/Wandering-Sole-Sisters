@@ -4,10 +4,13 @@ import BlogList from "../../components/Blog/BlogList";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
+import { Redirect } from 'react-router-dom';
 
 class Dashboard extends Component {
   render() {
-    const { blogs, notifications } = this.props;
+    const { blogs, notifications, signedIn } = this.props;
+
+    if (!signedIn) return (<Redirect to='/signin' />);
 
     return (
       <div className="dashboard container">
@@ -28,6 +31,7 @@ const mapStateToProps = (state) => {
   return {
     blogs: state.firestore.ordered.blogs,
     notifications: state.firestore.ordered.notifications,
+    signedIn: state.firebase.auth.uid ? true : false,
   };
 };
 

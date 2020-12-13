@@ -1,8 +1,15 @@
 import React, { Component } from "react";
 import "./Home.scss";
+import { connect } from "react-redux";
+import { Redirect } from 'react-router-dom';
 
-export default class Home extends Component {
+class Home extends Component {
   render() {
+
+    const { signedIn } = this.props;
+
+    if (signedIn) return (<Redirect to='/dashboard' />);
+
     return (
       <div>
         <div className="home-bg">
@@ -37,3 +44,11 @@ export default class Home extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    signedIn: state.firebase.auth.uid ? true : false,
+  };
+};
+
+export default connect(mapStateToProps)(Home);

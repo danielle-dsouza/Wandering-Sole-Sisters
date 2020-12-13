@@ -1,4 +1,4 @@
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 
 import Layout from "./components/Layout/Layout";
@@ -10,28 +10,19 @@ import SignUp from "./components/Auth/SignUp";
 import CreateBlog from "./components/Blog/CreateBlog";
 import Wildcard from "./scenes/Wildcard/Wildcard";
 
-function App(props) {
-  let routes;
+function App() {
 
-  if (props.signedIn) {
-    routes = (
-      <Switch>
-        <Route exact path="/" component={Dashboard} />
-        <Route path="/blog/:id" component={BlogDetails} />
-        <Route path="/create" component={CreateBlog} />
-        <Redirect to="/" component={Home} />
-      </Switch>
-    );
-  } else {
-    routes = (
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/signin" component={SignIn} />
-        <Route path="/signup" component={SignUp} />
-        <Route path="/**" component={Wildcard} />
-      </Switch>
-    );
-  }
+  const routes = (
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route path ="/dashboard" component={Dashboard} />
+      <Route path="/signin" component={SignIn} />
+      <Route path="/signup" component={SignUp} />
+      <Route path="/blog/:id" component={BlogDetails} />
+      <Route path="/create" component={CreateBlog} />
+      <Route path="/**" component={Wildcard} />
+    </Switch>
+  );
 
   return (
     <BrowserRouter>

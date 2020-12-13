@@ -3,11 +3,14 @@ import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
 import moment from "moment";
+import { Redirect } from 'react-router-dom';
 
 import Loader from "../UI/Loader/Loader";
 
 function BlogDetails(props) {
-  const { blog } = props;
+  const { blog, signedIn } = props;
+
+  if (!signedIn) return ( <Redirect to='/signin' />);
 
   if (blog) {
     return (
@@ -38,7 +41,8 @@ const mapStateToProps = (state, myProps) => {
     : null;
 
   return {
-    blog: blog,
+    signedIn: state.firebase.auth.uid ? true : false,
+    blog: blog
   };
 };
 

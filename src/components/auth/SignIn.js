@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../../styles/_forms.scss';
 import { connect } from 'react-redux';
 import { signIn } from '../../store/actions/authActions';
+import { Redirect } from 'react-router-dom';
 
 class SignIn extends Component {
 
@@ -19,12 +20,13 @@ class SignIn extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.signIn(this.state);
-        this.props.history.push('/');
     }
 
     render() {
 
-        const { authError } = this.props;
+        const { authError, signedIn } = this.props;
+
+        if (signedIn) return (<Redirect to='/dashboard' />);
 
         return (
             <div className="container">
@@ -52,7 +54,8 @@ class SignIn extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        authError: state.auth.authError
+        authError: state.auth.authError,
+        signedIn: state.firebase.auth.uid ? true : false,
     }
 }
 
