@@ -13,7 +13,7 @@ class Home extends Component {
     return (
       <div>
         <div className="home-bg">
-          <div className="home-motto">Discover your elsewhere...</div>
+          <div className="home-motto">discover your <br /> elsewhere...</div>
         </div>
 
         <div className="c-div">

@@ -1,7 +1,7 @@
 @import "../../styles/globals";
 
 .home-bg {
-  background-image: url("../../assets/home-bg.jpg");
+  background-image: url("../../assets/bg-desktop.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -10,9 +10,9 @@
   .home-motto {
     text-align: center;
     font-family: "Rock Salt", cursive;
-    font-size: 13vw;
-    padding-top: 13%;
-    color: white;
+    font-size: 9vw;
+    padding-top: 65%;
+    color: black;
   }
 }
 
@@ -57,8 +57,8 @@
 
 @media only screen and (min-width: 641px) and (max-width: 1024px) {
   .home-bg > .home-motto {
-    font-size: 12vw;
-    padding-top: 9%;
+    font-size: 7vw;
+    padding-top: 49%;
   }
 
   .quick-notes {
@@ -76,8 +76,8 @@
 
 @media only screen and (min-width: 1025px) {
     .home-bg > .home-motto {
-    font-size: 7vw;
-    padding-top: 1%;
+    font-size: 3vw;
+    padding-top: 16%;
   }
 
   .quick-notes {
