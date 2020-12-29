@@ -17,11 +17,11 @@ ul {
 
     .btn-user {
         color: black;
-        background-color: $theme-cream;
+        background-color: $theme-background;
     
         &:hover {
             color: white;
-            background-color: $theme-green;
+            background-color: $theme-secondary;
         }
     }
     

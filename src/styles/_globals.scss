@@ -1,14 +1,13 @@
 @import './fonts';
 
 // theme
-$theme-blue: #052d47;
-$theme-green: #8D8741;
-$theme-cream: #FBEEC1;
-$theme-brown: #BC986A;
+$theme-primary: #052d47;
+$theme-secondary: #0f4c75;
+$theme-background: #d5dbe0;
 
 hr {
   margin: 4% 0;
-  border-top: 5px solid $theme-green;
+  border-top: 5px solid $theme-secondary;
 }
 
 .c-div {
@@ -16,7 +15,7 @@ hr {
 }
 
 .highlight {
-  color: $theme-blue;
+  color: $theme-primary;
   font-weight: bold;
 }
 

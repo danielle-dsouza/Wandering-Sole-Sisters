@@ -10,10 +10,10 @@ form {
   }
 
   .btn {
-    background-color: $theme-green;
+    background-color: $theme-secondary;
     margin: 2% 0;
     &:hover {
-      background-color: darken($theme-green, 10%);
+      background-color: darken($theme-secondary, 10%);
     }
   }
 }
@@ -22,6 +22,6 @@ input[type=text]:not(.browser-default):focus:not([readonly]),
 input[type=email]:not(.browser-default):focus:not([readonly]),
 input[type=password]:not(.browser-default):focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
-  border-color: $theme-green;
+  border-color: $theme-secondary;
   box-shadow: none;
 }
